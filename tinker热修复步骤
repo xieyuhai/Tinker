@@ -1,0 +1,42 @@
+
+
+修改第三方代吗执行 tansform
+
+
+
+
+
+
+package com.xyh.tinker.bug;
+
+
+public class Bug {
+    public static void fix() {
+
+        System.out.println("result=" + (1 / 1));
+    }
+}
+
+
+
+
+编译成 class(可能 会 编译报错 jdk版本不一致)
+
+javac -source 1.6 -target 1.6 /Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main/java/com/xyh/tinker/bug/Bug.java
+
+
+进入包名的根目录
+
+cd /Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main/java
+
+生成 dex
+dx --dex --output=output.dex com/xyh/tinker/bug/Bug.class
+
+
+
+dx --dex --output=/Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main/java/com/xyh/tinker/bug/output.dex /Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main/java/com/xyh/tinker/bug
+
+
+
+
+
