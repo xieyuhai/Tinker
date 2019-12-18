@@ -1,1 +1,1 @@
-include ':app', ':regionview', ':glide', ':Utils', ':arouter', ':callarouter', ':ARouterAnnotationCompile', ':Annotation'
+include ':app', ':regionview', ':glide', ':Utils', ':arouter', ':callarouter', ':ARouterAnnotationCompile', ':Annotation', ':livedatabus'
