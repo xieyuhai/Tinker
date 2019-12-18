@@ -28,5 +28,7 @@ dependencies {
 
 
     implementation project(path: ":arouter")
+    annotationProcessor project(path: ":ARouterAnnotationCompile")
+    api project(path: ':Annotation')
 
 }

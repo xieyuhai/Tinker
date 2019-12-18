@@ -6,6 +6,6 @@ import com.xyh.arouter.IRouter;
 public class ActivityUtils implements IRouter {
     @Override
     public void putActivity() {
-        ARouter.getInstance().navigation("member", null);
+        ARouter.getInstance().navigation("call/main", null);
     }
 }

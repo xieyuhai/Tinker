@@ -73,6 +73,7 @@ public class AnnotationCompiler extends AbstractProcessor {
             String activityName = typeElement.getQualifiedName().toString();
             String key = typeElement.getAnnotation(BindPath.class).value();
 
+            System.out.println(activityName + "====" + key);
             map.put(key, activityName + ".class");
         }
 
@@ -82,10 +83,12 @@ public class AnnotationCompiler extends AbstractProcessor {
             String utilName = "ActivityUtils_" + System.currentTimeMillis();
 
             try {
+
+                
                 JavaFileObject sourceFile = filer.createSourceFile("com.xyh.utils." + utilName);
                 writer = sourceFile.openWriter();
 
-                writer.write("package com.xyh.utils;\n" +
+                writer.write("package com.xyh.callarouter;\n" +
                                 "import com.xyh.arouter.ARouter;\n" +
                                 "import com.xyh.arouter.IRouter; \n" +
                                 "public class " + utilName + " implements IRouter {\n" +

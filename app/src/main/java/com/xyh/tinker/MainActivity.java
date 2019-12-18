@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.xyh.annotation.BindPath;
 import com.xyh.tinker.bug.Bug;
 import com.xyh.tinker.utils.FixManager;
 
@@ -17,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-
+@BindPath("app/main")
 public class MainActivity extends AppCompatActivity {
 
     @Override

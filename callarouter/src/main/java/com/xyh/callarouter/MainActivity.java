@@ -8,7 +8,7 @@ import com.xyh.annotation.BindPath;
 import com.xyh.arouter.ARouter;
 
 
-@BindPath("member")
+@BindPath("call/main")
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void call(View view) {
-        ARouter.getInstance().navigation("member", null);
+//        ARouter.getInstance().navigation("call/main", null);
+        ARouter.getInstance().navigation("call/jump", null);
     }
 }
