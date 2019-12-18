@@ -40,3 +40,18 @@ dx --dex --output=/Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main
 
 
 
+
+
+
+javap 查看字节码指令
+cd /Users/xieyuhai/Downloads/androidselfstudy/Tinker/app/src/main/java/com/xyh/tinker/bug/
+
+ javap -c Bug.class
+
+
+
+下载 jvm 源码
+安装
+brew install mercurial
+
+

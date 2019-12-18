@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    // 3.4.1 以上使用
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
+
+    api project(path: ':Annotation')
+    implementation project(path: ':Utils')
+    //3.4 以下使用
+//    implmentation 'com.google.auto.service:auto-service:1.0-rc3'
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"

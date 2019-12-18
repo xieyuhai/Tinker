@@ -10,4 +10,13 @@ public class Bug {
 //        Log.e("" + Bug.class.getName(), "dsfsdfsdfsdfsd");
 
     }
+
+
+    private int count;
+
+    public void increase() {
+        synchronized (this) {
+            count++;
+        }
+    }
 }
