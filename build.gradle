@@ -2,12 +2,26 @@
 
 buildscript {
     repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven { url 'http://127.0.0.1:8081/nexus/content/repositories/releases/' }
         google()
         jcenter()
         
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.2'
+
+
+        //greendao
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
+        classpath 'io.realm:realm-gradle-plugin:5.8.0'
+
+
+
+
+        classpath 'com.enjoy.plugin:asm:1.0'
 
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -17,9 +31,12 @@ buildscript {
 
 allprojects {
     repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven { url 'http://127.0.0.1:8081/nexus/content/repositories/releases/' }
         google()
         jcenter()
-        
     }
 }
 

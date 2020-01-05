@@ -1,0 +1,131 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+
+    implementation 'com.android.tools.build:gradle:3.4.2'
+    implementation gradleApi()
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
+
+
+//apply plugin: 'maven'
+//
+////打包main目录下代码和资源的task
+//task androidSourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from android.sourceSets.main.java.srcDirs
+//}
+////配置需要上传到maven仓库的文件
+//artifacts {
+//    archives androidSourcesJar
+//}
+////上传到Maven仓库的task
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            //指定maven仓库url
+//            repository(url: "http://127.0.0.1:8081/nexus/content/repositories/releases/") {
+//                //nexus登录默认用户名和密码
+//                authentication(userName: "admin", password: "admin123")
+//            }
+//            pom.groupId = "com.example.as.custom"// 唯一标识（通常为模块包名，也可以任意）
+//            pom.artifactId = "CustomWidget" // 项目名称（通常为类库模块名称，也可以任意）
+//            pom.version = "1.1.0" // 版本号
+//        }
+//    }
+//}
+
+
+apply plugin: 'maven-publish'
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+
+// 1、使用maven
+
+//publishing {
+//    publications {
+////        mavenDeployer {
+////            //指定maven仓库url
+////            repository(url: "http://127.0.0.1:8081/nexus/content/repositories/releases/") {
+////                //nexus登录默认用户名和密码
+////                authentication(userName: "admin", password: "admin123")
+////            }
+////            pom.groupId = "com.enjoy.plugin"// 唯一标识（通常为模块包名，也可以任意）
+////            pom.artifactId = "asm" // 项目名称（通常为类库模块名称，也可以任意）
+////            pom.version = "1.1.0" // 版本号
+////        }
+////        ASMPlugin(MavenPublication) {
+//        maven(MavenPublication) {
+//            from components.java
+//            groupId 'com.enjoy.plugin'
+//            artifactId 'asm'
+//            version '1.0'
+//        }
+//    }
+//
+//    repositories {
+//        maven {
+//            //指定要上传的maven私服仓库
+//            url = "http://127.0.0.1:8081/nexus/content/repositories/releases/"
+//            //认证用户和密码
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
+//    }
+//}
+
+
+
+
+
+
+
+
+//2、使用自定义插件
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = "sources"
+}
+
+publishing {
+    publications {
+        ASMPlugin(MavenPublication) {
+            from components.java
+            artifact sourceJar
+            pom {
+                name = "ASMDemo"
+                description = "A demonstration of Maven POM customization"
+//                url = "http://www.example.com/project"
+                url = "http://127.0.0.1:8081/nexus/content/repositories/releases/"
+                licenses {
+                    license {
+                        name = "The Apache License, Version 2.0"
+                        url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                    }
+                }
+                developers {
+                    developer {
+                        id = "com.enjoy.plugin"
+                        name = "asm111"
+                        email = "1269981274@qq.com"
+                    }
+                }
+//                scm {
+//                    connection = "scm:svn:http://subversion.example.com/svn/project/trunk/"
+//                    developerConnection = "scm:svn:https://subversion.example.com/svn/project/trunk/"
+//                    url = "http://subversion.example.com/svn/project/trunk/"
+//                }
+            }
+        }
+    }
+}

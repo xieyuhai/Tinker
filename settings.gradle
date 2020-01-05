@@ -1,1 +1,1 @@
-include ':app', ':regionview', ':glide', ':Utils', ':arouter', ':callarouter', ':ARouterAnnotationCompile', ':Annotation', ':livedatabus'
+include ':app', ':regionview', ':glide', ':Utils', ':arouter', ':callarouter', ':ARouterAnnotationCompile', ':Annotation', ':livedatabus', ':greendao', ':asm', ':asm_plugin', ':channelpacking', ':SignApk', ':giflib'

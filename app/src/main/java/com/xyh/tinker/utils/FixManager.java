@@ -73,7 +73,7 @@ public class FixManager {
                 Object systemDexElementsValues = dexElementsField.get(pathListValue);
 
 
-                //第二部
+                //第二步
                 DexClassLoader dexClassLoader = new
                         DexClassLoader(dex.getAbsolutePath(), fpot.getAbsolutePath(), null, context.getClassLoader());
 
@@ -88,7 +88,7 @@ public class FixManager {
                 Object myDexElementsValues = myDexElementsField.get(myPathListValue);
 
 
-//            第三部
+//            第三步
                 int length = Array.getLength(systemDexElementsValues);
                 int myLength = Array.getLength(myDexElementsValues);
 

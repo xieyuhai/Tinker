@@ -1,6 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    lintOptions {
+        abortOnError false
+    }
+
     compileSdkVersion COMPILE_SDK_VERSION.toInteger()
     defaultConfig {
         applicationId "com.xyh.tinker"
@@ -10,12 +15,34 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+
+    signingConfigs {
+        androidtinker {
+            keyAlias 'tinker'
+            keyPassword '123456'
+            storeFile file("Untitled")
+            storePassword '123456'
+        }
+        debug {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+        release {
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.androidtinker
         }
     }
+
+
 }
 
 dependencies {

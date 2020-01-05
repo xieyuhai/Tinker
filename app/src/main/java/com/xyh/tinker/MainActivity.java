@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.xyh.annotation.BindPath;
 import com.xyh.tinker.bug.Bug;
+import com.xyh.tinker.utils.ChannelUtil;
 import com.xyh.tinker.utils.FixManager;
 
 import java.io.File;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //打印渠道提示
+        Toast.makeText(this, "" + ChannelUtil.getChannel(this), Toast.LENGTH_SHORT).show();
     }
 
 
